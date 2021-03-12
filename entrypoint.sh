@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-perlcritic $INPUT_PERLCRITIC_ARGS | \
-    reviewdog -f="checkstyle" \
-        -name="${INPUT_TOOL_NAME}" \
+export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
+
+perlcritic --verbose 1 $INPUT_PERLCRITIC_ARGS | \
+    reviewdog -efm '%f:%l:%c:%m' \
+        -name="perlcritic" \
         -reporter="${INPUT_REPORTER:-github-pr-check}" \
         -filter-mode="${INPUT_FILTER_MODE}" \
         -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
