@@ -1,0 +1,15 @@
+---
+name: "gugod-perlcritic (with reviewdog)"
+description: "perlcritic by gugod"
+author: "Kang-min Liu <gugod@gugod.org>"
+branding:
+  icon: "check-circle"
+  color: "green"
+inputs:
+  perlcritic_flags:
+    description: Flags for perlcritic
+    required: false
+    default: --profile .perlcriticrc .
+runs:
+  using: 'docker'
+  image: Dockerfile
