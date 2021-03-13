@@ -6,14 +6,18 @@ branding:
   icon: "check-circle"
   color: "green"
 inputs:
-  perlcritic_flags:
-    description: Flags / arguments for perlcritic
-    required: false
-    default: --quiet --profile .perlcriticrc .
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
     default: ${{ github.token }}
+
+  ## For pellcritic ##
+  perlcritic_flags:
+    description: Flags / arguments for perlcritic
+    required: false
+    default: --quiet --profile .perlcriticrc .
+
+  ## For reviewdog ##
   level:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
