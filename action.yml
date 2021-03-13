@@ -6,7 +6,7 @@ branding:
   icon: "check-circle"
   color: "green"
 inputs:
-  perlcritic_flags
+  perlcritic_flags:
     description: Flags / arguments for perlcritic
     required: false
     default: --profile .perlcriticrc .
