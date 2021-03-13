@@ -8,11 +8,10 @@ installation of perlcritic with only policies that comes with
 `Perl::Critic` itself, and this action include all policies available
 on CPAN.
 
-To use this action, a profile is needed. Conventionally it is asummed
-that the profile is named `.perlcriticrc`.
+To use this action, a profile is needed. Conventionally the profile should
+be named `.perlcriticrc`.
 
-Additionally, it is strongly recommended to include flag `only`
-in `.perlcriticrc`, such as:
+It is strongly recommended to include flag `only` in `.perlcriticrc`, like this:
 
 ```
 only = 1
@@ -20,34 +19,9 @@ include = RequireUseStrict ProhibitUnusedVariables
 ```
 
 With that example, only 2 listed policies are enabled. If more are needed,
-they need to be expilicitly listed as one of the values ins the `include`.
+they need to be expilicitly listed as one of the values in the `include`.
 
-If you have a working config without `only` flag, you could see the
-full list of enabled policies by running:
-
-```
-perlcritic -p .perlcriticrc --list-enabled
-```
-
-The main reason this is strongly recommended is that once policies are
-installed, they are basically enabled. If vanilla perlcritic is not
-enough for your project, that means either you need to tailer a
-`perlcritic` GitHub Action with the exact policies for that one
-project, or go with the approach provided in this GitHub Action.
-
-## Inputs
-
-There are two optional input, one is `paths`, the other is `options`.
-
-The default value  is `--quiet -p .perlrcriticrc`  for `options`, `.` for `paths`.
-
-That means the default `perlcritic` command is:
-
-    perlcritic --quiet -p .perlcriticrc .
-
-... which means it scans current directory for perl source code and
-report only violations, based on the profile written in
-`.perlcriticrc` in the current directory.
-
-## Example
-
+The main reason this is strongly recommended is that the runner of
+this action is prepared with all policies installed and due to how
+Perl::Critic is written, policies could be enabled simply by being
+installed -- which means 

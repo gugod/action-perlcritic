@@ -9,7 +9,7 @@ inputs:
   perlcritic_flags:
     description: Flags / arguments for perlcritic
     required: false
-    default: --profile .perlcriticrc .
+    default: --quiet --profile .perlcriticrc .
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
