@@ -2,7 +2,7 @@
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-perlcritic --verbose 1 $INPUT_PERLCRITIC_ARGS | \
+perlcritic --verbose 1 $INPUT_PERLCRITIC_FLAGS | \
     reviewdog -efm '%f:%l:%c:%m' \
         -name="perlcritic" \
         -reporter="${INPUT_REPORTER:-github-pr-check}" \

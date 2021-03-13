@@ -6,8 +6,8 @@ branding:
   icon: "check-circle"
   color: "green"
 inputs:
-  perlcritic_flags:
-    description: Flags for perlcritic
+  perlcritic_flags
+    description: Flags / arguments for perlcritic
     required: false
     default: --profile .perlcriticrc .
   github_token:
