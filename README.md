@@ -58,7 +58,8 @@ Optional. Filtering mode for the reviewdog command `[added,diff_context,file,nof
 
 ## Example usage
 
-### [.github/workflows/perlcritic.yml](.github/workflows/perlcritic.yml)
+Due to the fact violations are outputed as checks / comments of PRs,
+this action works only with `pull_request` event.
 
 ```yml
 name: perlcritic
@@ -69,6 +70,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: gugod/action-perlcritic@v1
-        with:
-          github_token: ${{ secrets.github_token }}
 ```
